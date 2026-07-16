@@ -15,4 +15,10 @@ const getPostById = async (postId) => {
   const getPostDetails = await axios.get(`${BASE_URL}/posts/${postId}`);
   return getPostDetails.data;
 };
-export { getAllPosts, getPostById ,getPaginatedPosts};
+
+const deletePostById=async(postId)=>{
+    console.log("post id ",postId);
+    const deletedPostData=await axios.delete(`${BASE_URL}/posts/${postId}`);
+    return deletedPostData.data;
+}
+export { getAllPosts, getPostById ,getPaginatedPosts,deletePostById};
