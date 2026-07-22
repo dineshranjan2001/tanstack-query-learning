@@ -69,12 +69,19 @@ const Posts = () => {
               </div>
             </Link>
             <div>
-              <button
-                onClick={() => deleteMutation.mutate(post?.id)}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => deleteMutation.mutate(post?.id)}
+                  className="mt-5 bg-gray-900 text-white font-semibold rounded-full px-6 py-1 hover:bg-gray-800 transition-all active:scale-95 cursor-pointer"
+                >
+                  Delete
+                </button>
+                <Link to={`/posts/${post?.id}/update`} 
                 className="mt-5 bg-gray-900 text-white font-semibold rounded-full px-6 py-1 hover:bg-gray-800 transition-all active:scale-95 cursor-pointer"
               >
-                Delete
-              </button>
+                Update
+              </Link>
+              </div>
             </div>
           </div>
         ))}

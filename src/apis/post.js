@@ -7,7 +7,9 @@ const getAllPosts = async () => {
 };
 
 const getPaginatedPosts = async (page) => {
-  const getPaginatedPosts = await axios.get(`${BASE_URL}/posts?_start=${page}&_limit=5`);
+  const getPaginatedPosts = await axios.get(
+    `${BASE_URL}/posts?_start=${page}&_limit=5`,
+  );
   return getPaginatedPosts.data;
 };
 
@@ -16,9 +18,19 @@ const getPostById = async (postId) => {
   return getPostDetails.data;
 };
 
-const deletePostById=async(postId)=>{
-    console.log("post id ",postId);
-    const deletedPostData=await axios.delete(`${BASE_URL}/posts/${postId}`);
-    return deletedPostData.data;
-}
-export { getAllPosts, getPostById ,getPaginatedPosts,deletePostById};
+const deletePostById = async (postId) => {
+  console.log("post id ", postId);
+  const deletedPostData = await axios.delete(`${BASE_URL}/posts/${postId}`);
+  return deletedPostData.data;
+};
+
+const updatePost = async (postId, postData) => {
+   console.log("data ",postId, postData);
+  const updatedPostData = await axios.put(
+    `${BASE_URL}/posts/${postId}`,
+    postData,
+  );
+  console.log("updatedPostData ",updatedPostData);
+  return updatedPostData.data;
+};
+export { getAllPosts, getPostById, getPaginatedPosts, deletePostById ,updatePost};

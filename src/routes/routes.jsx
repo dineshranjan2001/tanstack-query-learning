@@ -3,6 +3,7 @@ import Blogs from "../pages/Blogs";
 import Home from "../pages/Home";
 import PostDetails from "../pages/PostDetails";
 import Posts from "../pages/Posts";
+import UpdatePost from "../pages/UpdatePost";
 
 export const routes=[
     {
@@ -33,6 +34,12 @@ export const routes=[
         name:'Post Details',
         path:'/posts/:id',
         element:<PostDetails/>,
+        isShowInHeader:false
+    },
+    {
+        name:'Post Details',
+        path:'/posts/:id/update',
+        element:<UpdatePost/>,
         isShowInHeader:false
     }
 ];
